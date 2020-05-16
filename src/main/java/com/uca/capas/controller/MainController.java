@@ -1,8 +1,13 @@
 package com.uca.capas.controller;
 
 import java.util.List;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,7 +21,7 @@ public class MainController {
 	@Autowired
 	private EstudianteDAO estudianteDAO;
 	
-	@RequestMapping("/estudiante")	
+	@RequestMapping("/listado")	
 	public ModelAndView initMain() {
 		ModelAndView mav = new ModelAndView();
 		List<Estudiante> estudiantes = null;
@@ -29,8 +34,26 @@ public class MainController {
 		}
 		
 		mav.addObject("estudiantes", estudiantes);
-		mav.setViewName("main");
+		mav.setViewName("listado");
 		return mav;		
+	}
+	
+	@RequestMapping("/inicio")
+	public ModelAndView formProducto(@Valid @ModelAttribute Estudiante estudiante, BindingResult result ) {
+		
+		ModelAndView mav = new ModelAndView();
+		
+		if(result.hasErrors()) {
+			mav.setViewName("index");
+		} else {
+			estudianteDAO.insert(estudiante);
+			
+			mav.setViewName("index");
+
+		}
+		
+		return mav;
+		
 	}
 	
 	@RequestMapping(value ="/mostrarEstudiante", method= RequestMethod.POST)	

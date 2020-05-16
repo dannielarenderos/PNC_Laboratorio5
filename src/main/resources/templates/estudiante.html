@@ -6,25 +6,25 @@
 </head>
 <body>
 
-<label> Estudiante con codigo </label> <label th:text="${estudiante.codigoEstudiante}"></label>
+	<label> Estudiante con codigo </label>
+	<label th:text="${estudiante.c_usuario}"></label>
 	<table>
-		
+
 		<thead>
-			<th> Nombre </th>
-			<th> Apellido </th>
-			<th> Edad </th>
-			<th> Estado </th>
+			<th>Nombre</th>
+			<th>Apellido</th>
+			<th>Carne</th>
+			<th>Carrera</th>
 		</thead>
-		
-			<tr>
-				<th th:text="${estudiante.nombre}">  />
-				<th th:text="${estudiante.apellido}">  />
-				<th th:text="${estudiante.edad}">  />
-				<th th:text="${estudiante.estadoDelegate}">  />
-				
-			</tr>
+
+		<tr>
+			<th th:text="${estudiante.Nombre}">/>
+			<th th:text="${estudiante.Apellido}">/>
+			<th th:text="${estudiante.Carne}">/>
+			<th th:text="${estudiante.Carrera}">/>
+		</tr>
 	</table>
-	
-	
+
+
 </body>
 </html>

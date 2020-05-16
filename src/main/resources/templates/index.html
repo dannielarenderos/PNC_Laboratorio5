@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmins:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<form th:action="@{/inicio}" th:object="${estudiante}" method="post">
+
+		<div class="divSec">
+			<label for="Nombre">Nombre:</label> <br>
+			<input class="vergo" type="text" th:field="*{Nombre}" id="Nombre" /><br>
+			<span class="form-text text-danger" th:errors="*{Nombre}"></span><br>
+		</div> <br>
+		
+		<div class="divSec">
+			<label for="Apellido">Apellido:</label> <br>
+			<input class="vergo" type="text" th:field="*{Apellido}" id="Apellido" /><br>
+			<span class="form-text text-danger" th:errors="*{Apellido}"></span><br>
+		</div> <br>
+		
+		<div class="divSec">
+			<label for="Carne">Carne:</label> <br>
+			<input class="vergo" type="text" th:field="*{Carne}" id="Carne" /><br>
+			<span class="form-text text-danger" th:errors="*{Carne}"></span><br>
+		</div> <br>
+		
+		<div class="divSec">
+			<label for="Carne">Carrera:</label> <br>
+			<input class="vergo" type="text" th:field="*{Carrera}" id="Carrera" /><br>
+			<span class="form-text text-danger" th:errors="*{Carrera}"></span><br>
+		</div> <br>
+		
+		<input type="submit" value="Guardar"> <br>
+		<a href="/listado">Listado</a>
+
+	</form>
+</body>
+</html>
